@@ -10,4 +10,7 @@ fi
 echo "Updating vim plugins"
 nvim +"lua require('lazy').sync({wait=true})" +qa
 
+echo "Installing fonts"
+cp fonts/*.ttf ~/Library/Fonts
+
 popd &>/dev/null
