@@ -1,5 +1,14 @@
 return {
   "mason-org/mason-lspconfig.nvim",
+  opts = {
+    ensure_installed = {
+      "lua_ls",
+      "ruby_lsp",
+      "html",
+      "vtsls",
+    },
+    automatic_installation = true,
+  },
   depedencies = {
     { "mason-org/mason.nvim", opts = {} },
     "neovim/nvim-lspconfig"
