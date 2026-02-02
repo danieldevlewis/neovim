@@ -2,6 +2,17 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = false
 
+-- No swapfiles
+vim.o.swapfile = false
+-- Backup
+vim.o.backup = true
+vim.o.directory = "~/.local/state/nvim/swap//"
+-- Persistent undo
+vim.o.undofile = true
+vim.o.undodir = "~/.local/state/nvim/undo//"
+-- Some applications work better like this
+vim.o.backupcopy = "yes"
+
 vim.o.number = true
 vim.o.mouse = 'a'
 
