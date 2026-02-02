@@ -2,16 +2,20 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = false
 
--- No swapfiles
-vim.o.swapfile = false
+-- Do I really need swapfiles?
+vim.o.swapfile = true
+vim.o.directory = vim.fn.expand("~/.local/state/nvim/swap//")
 -- Backup
 vim.o.backup = true
-vim.o.directory = "~/.local/state/nvim/swap//"
--- Persistent undo
-vim.o.undofile = true
-vim.o.undodir = "~/.local/state/nvim/undo//"
+vim.o.backupdir= vim.fn.expand("~/.local/state/nvim/swap//")
 -- Some applications work better like this
 vim.o.backupcopy = "yes"
+-- Persistent undo
+vim.o.undofile = true
+vim.o.undodir = vim.fn.expand("~/.local/state/nvim/undo//")
+
+-- Better?
+vim.o.updatetime = 1000
 
 vim.o.number = true
 vim.o.mouse = 'a'
