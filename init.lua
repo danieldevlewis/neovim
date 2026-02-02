@@ -148,8 +148,27 @@ vim.lsp.config('lua_ls', {
   }
 })
 
+vim.lsp.config('ruby_lsp', {
+  init_options = {
+    formatter = 'rubocop',
+    linters = { 'rubocop' },
+  },
+})
+
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('ruby_lsp')
 vim.lsp.enable('eslint')
 vim.lsp.enable('html')
 vim.lsp.enable('vtsls')
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.rb",
+  callback = function()
+    vim.lsp.buf.format({
+      async = false,
+      filter = function(client)
+        return client.name == "ruby_lsp"
+      end,
+    })
+  end,
+})
