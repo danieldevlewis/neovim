@@ -8,6 +8,7 @@ return {
       "vtsls",
     },
     automatic_installation = true,
+    automatic_enable = false,
   },
   depedencies = {
     { "mason-org/mason.nvim", opts = {} },

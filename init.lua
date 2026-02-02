@@ -113,11 +113,8 @@ vim.keymap.set("n", "]g", vim.diagnostic.goto_next)
 vim.keymap.set("n", "[g", vim.diagnostic.goto_prev)
 
 vim.diagnostic.config({
-  virtual_text = {
-    prefix = "#", -- Could also be ▸, →, etc.
-    spacing = 2,
-    source = "if_many", -- Show source if multiple
-  },
+  virtual_text = false,
+  virtual_lines = { current_line = true },
   signs = true,       -- Show symbols in gutter
   underline = true,   -- Keep underlines
   update_in_insert = false, -- Don't show in insert mode
