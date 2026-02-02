@@ -95,35 +95,6 @@ vim.opt.spell = true
 vim.opt.spelllang = { "en_gb" }
 vim.api.nvim_set_hl(0, "SpellBad", { underline = true, strikethrough = false })
 
-vim.api.nvim_set_hl(0, "TrailingSpaces", { bg = "#dc322f" })
-local trailing_group = vim.api.nvim_create_augroup("TrailingSpacesHighlight", { clear = true })
-vim.api.nvim_create_autocmd({"InsertEnter"}, {
-  group = trailing_group,
-  callback = function()
-    -- Remove highlighting when entering insert mode
-    if vim.g.trailing_match then
-      pcall(function ()
-        vim.fn.matchdelete(vim.g.trailing_match or 0)
-      end)
-      vim.g.trailing_match = nil
-    end
-  end,
-})
-vim.api.nvim_create_autocmd({"InsertLeave"}, {
-  group = trailing_group,
-  callback = function()
-    -- Re-add highlighting when leaving insert mode or opening a buffer
-    vim.g.trailing_match = vim.fn.matchadd("TrailingSpaces", [[\s\+$]])
-  end,
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = {"NvimTree", "help", "terminal"},
-  callback = function()
-    vim.fn.matchdelete(vim.fn.matchadd("TrailingSpaces", [[\s\+$]]))
-  end
-})
-
 vim.keymap.set("n", "]g", vim.diagnostic.goto_next)
 vim.keymap.set("n", "[g", vim.diagnostic.goto_prev)
 
