@@ -6,6 +6,7 @@ return {
       "ruby_lsp",
       "html",
       "vtsls",
+      "cssls",
     },
     automatic_installation = true,
     automatic_enable = false,
