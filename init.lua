@@ -60,6 +60,9 @@ vim.keymap.set("n", "Y", "y$", { noremap = true })
 -- Make U redo
 vim.keymap.set("n", "U", "<C-r>", { noremap = true, silent = true })
 
+-- Snap moving back to the left
+vim.keymap.set("n", "^", "^ze", { noremap = true, silent = true })
+
 vim.api.nvim_set_hl(0, "IndentOdd",  { bg = "#002b36" }) -- base02
 vim.api.nvim_set_hl(0, "IndentEven", { bg = "#073642" }) -- base03
 
