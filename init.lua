@@ -111,6 +111,8 @@ vim.diagnostic.config({
   severity_sort = true,
 })
 
+vim.keymap.set("n", "<leader>d", ":lua vim.diagnostic.open_float()<CR>", { noremap = true, silent = true })
+
 vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", { underline = true })
 
 vim.lsp.config('*', {
