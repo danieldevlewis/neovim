@@ -7,6 +7,7 @@ return {
       "html",
       "vtsls",
       "cssls",
+      "eslint",
     },
     automatic_installation = true,
     automatic_enable = false,
