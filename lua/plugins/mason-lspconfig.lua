@@ -8,6 +8,7 @@ return {
       "vtsls",
       "cssls",
       "eslint",
+      "tailwindcss",
     },
     automatic_installation = true,
     automatic_enable = false,

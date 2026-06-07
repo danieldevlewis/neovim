@@ -140,6 +140,7 @@ vim.lsp.enable('eslint')
 vim.lsp.enable('html')
 vim.lsp.enable('vtsls')
 vim.lsp.enable('cssls')
+vim.lsp.enable('tailwindcss')
 
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*.rb",
