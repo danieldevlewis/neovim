@@ -132,6 +132,8 @@ vim.lsp.config('ruby_lsp', {
     formatter = 'rubocop',
     linters = { 'rubocop' },
   },
+  -- https://github.com/yndajas/dotfiles/commit/9624d953b5163177af39b079a5be4989cc0f3d6b
+  cmd = { vim.fn.expand("~/.rbenv/shims/ruby-lsp") }
 })
 
 vim.lsp.enable('lua_ls')
