@@ -18,7 +18,14 @@ return {
 
     null_ls.setup({
       sources = {
-        null_ls.builtins.formatting.prettier,
+        null_ls.builtins.formatting.prettier.with({
+          condition = function()
+            if os.getenv("NVIM_WORK") == "1" then
+              return vim.bo.filetype ~= "markdown"
+            end
+            return true
+          end,
+        }),
         null_ls.builtins.formatting.stylelint,
         null_ls.builtins.completion.spell,
       },
