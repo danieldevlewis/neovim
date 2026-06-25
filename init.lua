@@ -67,6 +67,10 @@ vim.keymap.set("n", "^", "^ze", { noremap = true, silent = true })
 vim.api.nvim_set_hl(0, "IndentOdd",  { bg = "#002b36" }) -- base02
 vim.api.nvim_set_hl(0, "IndentEven", { bg = "#073642" }) -- base03
 
+-- Set the title to the current working directory
+vim.o.title = true
+vim.o.titlestring = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
