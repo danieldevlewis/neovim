@@ -21,7 +21,13 @@ return {
         null_ls.builtins.formatting.prettier.with({
           condition = function()
             if os.getenv("NVIM_WORK") == "1" then
-              return vim.bo.filetype ~= "markdown"
+              if vim.bo.filetype == "markdown" then
+                return false
+              end
+
+              if vim.bo.filetype == "yaml" then
+                return false
+              end
             end
             return true
           end,
