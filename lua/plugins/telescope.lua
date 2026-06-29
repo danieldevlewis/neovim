@@ -16,5 +16,6 @@ return {
     vim.keymap.set('n', '<leader>b', builtin.buffers, { desc = 'Telescope buffers' })
     vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
     vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = 'Telescope diagnostics' })
+    vim.keymap.set("n", "<leader>r", builtin.resume, { desc = 'Telescope last search' })
   end
 }
