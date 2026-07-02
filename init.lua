@@ -2,8 +2,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = false
 
--- Do I really need swapfiles?
-vim.o.swapfile = true
+vim.o.swapfile = false
 vim.o.directory = vim.fn.expand("~/.local/state/nvim/swap//")
 -- Backup
 vim.o.backup = true
