@@ -7,7 +7,12 @@ return {
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
   }, -- add your plugins here
   config = function ()
+    local function get_visual_selection()
+      vim.cmd('noau normal! "vy"')
+      return vim.fn.getreg("v")
+    end
     local builtin = require('telescope.builtin')
+
     vim.keymap.set('n', '<leader>f', builtin.find_files, { desc = 'Telescope find files' })
     vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
     vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
@@ -17,5 +22,10 @@ return {
     vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
     vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = 'Telescope diagnostics' })
     vim.keymap.set("n", "<leader>r", builtin.resume, { desc = 'Telescope last search' })
+    vim.keymap.set("v", "<leader>g", function()
+      builtin.live_grep({
+        default_text = get_visual_selection(),
+      })
+    end)
   end
 }
